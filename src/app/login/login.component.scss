@@ -1,0 +1,32 @@
+.wrapper {
+  background: linear-gradient(to right, #021B79, #0575E6, transparent), url('/assets/contacto-world-map-dotted-png.png');
+  height: 990px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 550px;
+}
+
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: black;
+  box-shadow: 0 5px 5px #666;
+}

@@ -1,0 +1,95 @@
+section.content-header {
+  background-color: #6275f5;
+}
+
+h5 {
+  color: blue;
+  margin-left: 11px;
+}
+
+li.empty {
+  margin-left: 200px;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid blue;
+  margin: 10px;
+  cursor: pointer;
+}
+
+  .nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+    background-color: blue;
+    border-radius: 2px;
+  }
+
+li > a {
+  color: white;
+  font-weight: bold;
+  border-radius: 0px !important;
+}
+
+.btn-primary {
+  cursor: not-allowed;
+  color:black;
+}
+
+.btn-default{
+    background-color:#eee;
+}
+
+.vertical {
+  border-left: 3px solid #eee;
+  position: absolute;
+  left: 50%;
+  height: 600px;
+}
+
+.btn-default {
+  margin-left: 15px;
+}
+
+tbody > tr > td.tdWidth {
+  width: 6%;
+}
+
+thead > tr > th.thWidth {
+  width: 6%;
+}
+
+tbody {
+  display: block;
+  height: 370px;
+  overflow: auto;
+}
+
+  thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+.table, th, td {
+  border: 1px solid #eee;
+  margin-top: 10px;
+}
+
+thead {
+  background-color: #c4daff;
+}
+
+::-webkit-scrollbar {
+  border-radius: 20px;
+  width: 5px;
+  height: 5px;
+  background-color: #8a8484;
+}
+
+i.fa.fa-times-circle-o {
+  float: right;
+  margin: -31px 0 0 0;
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
+}

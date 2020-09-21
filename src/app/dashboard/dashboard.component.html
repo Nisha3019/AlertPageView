@@ -1,0 +1,112 @@
+<section class="content-header">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h4 style="color:white;">Alerts</h4>
+        <i class="fa fa-times-circle-o" (click)="closeAlert()"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ul class="nav nav-tabs">
+  <li class="empty"></li>
+  <li class="active"><a href="#" style="color:blue;">Immunization Alerts</a></li>
+  <li><a>Lab Alerts</a></li>
+  <li><a>DI Alerts</a></li>
+  <li><a>Procedure Alerts</a></li>
+  <li><a>RX Specific Alerts</a></li>
+  <li><a>DX Specific Alerts</a></li>
+  <li><a>Patient Specific Alerts</a></li>
+</ul>
+
+<div class="container-fluid">
+  <div class="row my-3">
+    <div class="col-md-6">
+      <h5><i class="fa fa-square" style="padding:5px;"></i>Immunization Alerts</h5>
+      <div class="col-lg-6 pull-left">
+        <input type="text" name="searchString" class="form-control" id="listSearch" placeholder="Find" [(ngModel)]="searchText" autocomplete="off" />
+      </div>
+      <div class="col-md-2" style="float: right;" *ngIf="hasData()">
+        <button type="button" class="btn btn-default" (click)="deleteRecord()">Delete</button>
+      </div>
+
+      <div class="col-md-12" *ngIf="!hasData()">
+        <h5>No user data available.</h5>
+      </div>
+
+      <div class="col-md-12" *ngIf="hasData()">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="thWidth"><input type="checkbox" name="name1" [(ngModel)]="isAllCheck" (change)="allChange($event)" />&nbsp;</th>
+              <th class="thWidth">ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>WebReference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of userList | LockFilter:searchText">
+              <td class="tdWidth"><input type="checkbox" name="name1" [(ngModel)]="item.isActive" />&nbsp;</td>
+              <td class="tdWidth">{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.description}}</td>
+              <td>{{item.webReference}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-6 vertical">
+      <form #userForm="ngForm" role="form">
+        <div class="col-md-12 form-group">
+          <label for="name">Name:</label>
+          <div>
+            <input type="text" class="form-control" name="userName" [(ngModel)]="userName" placeholder="Name" required>
+            <div *ngIf="userName?.errors && userName?.touched && userName?.invalid" class="alert alert-danger">
+              <div *ngIf="userName.errors.required" class="text-danger">
+                Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 form-group">
+          <label for="description">Description:</label>
+          <div>
+            <input type="text" class="form-control" [(ngModel)]="userDescription" name="description" placeholder="Description" required>
+            <div *ngIf="description?.errors && description?.touched && description?.invalid" class="alert alert-danger">
+              <div *ngIf="description.errors.required" class="text-danger">
+                Description is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 form-group">
+          <label for="webRef">Web Ref.:</label>
+          <div>
+            <input type="text" class="form-control" name="webRef" [(ngModel)]="userWebRef" placeholder="Web Ref." required>
+            <div *ngIf="webRef?.errors && webRef?.touched && webRef?.invalid" class="alert alert-danger">
+              <div *ngIf="webRef.errors.required" class="text-danger">
+                Web reference is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4" style="float:right; margin-right:-46px;">
+          <button type="button" class="btn btn-primary" [disabled]="!userForm.valid" (click)="addUser(userName,userDescription,userWebRef)">Add</button>
+          <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
